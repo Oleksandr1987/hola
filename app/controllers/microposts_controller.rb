@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   # GET /microposts or /microposts.json
   def index
-    @microposts = Micropost.all
+      @microposts = Micropost.all
   end
 
   # GET /microposts/1 or /microposts/1.json
