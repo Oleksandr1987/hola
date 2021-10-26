@@ -45,13 +45,13 @@
     <link href="headers.css" rel="stylesheet">
 
   </head>
-
   <body>
-    <header>
-      <%= render "shared/header" %>
-      </header>
-
-        <%= yield %>
+    <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+   <div>
+        <%= render "shared/header" %>
+  </div>
+          <%= yield %>
     <div>
       <%= render "shared/footer" %>
     </div>

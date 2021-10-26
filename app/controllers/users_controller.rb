@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-
+  before_action :check_is_admin, only: :index
 # GET /users or /users.json
 def index
   @users = User.all
   set_meta_tags site: 'User all'
+   # ap @users
 end
 
 # GET /users/1 or /users/1.json
@@ -12,6 +13,7 @@ def show
   set_meta_tags title: @user.name,
   site: 'User Form',
   reverse: true
+  @microposts = @user.microposts.paginate(page:params[:page])
 end
 
 # GET /users/new
@@ -78,4 +80,8 @@ private
   def user_params
     params.require(:user).permit(:name, :email)
   end
+
+  def check_is_admin
+      redirect_to root_path, notice: "you are not admin" unless current_user&.is_admin?
+    end
 end
