@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 def index
   @users = User.all
   set_meta_tags site: 'User all'
-   # ap @users
+
 end
 
 # GET /users/1 or /users/1.json
@@ -13,7 +13,7 @@ def show
   set_meta_tags title: @user.name,
   site: 'User Form',
   reverse: true
-  @microposts = @user.microposts.paginate(page:params[:page])
+
 end
 
 # GET /users/new
