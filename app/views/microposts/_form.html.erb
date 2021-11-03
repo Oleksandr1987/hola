@@ -10,18 +10,19 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+  <div class="form-input">
+    <%= form.text_field :context, placeholder: "Title... " %>
   </div>
+<div class="form-input">
+  <%= form.text_area :content, placeholder: "Content... "%>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
+</div>
+  <%= form.label "Add file:" %>
+  <%= form.file_field :cover_picture %>
+   <%= form.hidden_field :user_id, value: current_user.id %>
+    <button class="form-btn">
+        <%= form.submit%>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    </button>
+
 <% end %>

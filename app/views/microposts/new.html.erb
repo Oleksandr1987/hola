@@ -1,5 +1,8 @@
-<h1>New Micropost</h1>
-
+<%= stylesheet_link_tag 'microposts' %>
+<div class="main-container">
+<div class="post-container">
+<h4>Create new micropost</h4>
 <%= render 'form', micropost: @micropost %>
-
-<%= link_to 'Back', microposts_path %>
+<%= link_to 'Back', microposts_path, class:"form-btn" %>
+</div>
+</div>

@@ -1,4 +1,4 @@
-@import "bootstrap-sprockets";
+// @import "bootstrap-sprockets";
 @import "bootstrap";
 
 // Place all the styles related to the Microposts controller here.
@@ -10,7 +10,7 @@
   padding: 0;
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    border-top: 1px solid #007bff;
   }
   .user {
     margin-top: 5em;
@@ -25,7 +25,7 @@
     }
   }
   .timestamp {
-    color: $gray-light;
+    color: #007bff;
     display: block;
     margin-left: 60px;
   }

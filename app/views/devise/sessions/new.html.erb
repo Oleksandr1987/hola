@@ -1,56 +1,36 @@
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.88.1">
-  <title>Signin Template · Bootstrap v5.1</title>
+<div class="main">
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
+<div class="login-form">
+         <h3 class="login-form-title login-title">Please, sign in</h3>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+         <div class="form-input login">
+            <div class="input-icon">
+            <span class="fa fa-envelope"></span>
+            </div>
+             <%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder: "Enter email... " %>
+         </div>
+         <div class="form-input login">
 
+            <div class="input-icon">
+             <span class="fa fa-lock"></span>
+            </div>
+              <%= f.password_field :password, autocomplete: "current-password", placeholder: "Enter password... " %>
+         </div>
+         <% if devise_mapping.rememberable? %>
+         <div class="form-checkbox">
+             <%= f.check_box :remember_me %>
 
-
-  <!-- Bootstrap core CSS -->
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
-
-
-  <!-- Custom styles for this template -->
-  <link href="signin.css" rel="stylesheet">
-</head>
-<body class="text-left">
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-<% end %>
-
-<%= render "devise/shared/links" %>
+            <p> Remember me</p>
+         </div>
+          <% end %>
+         <p class="form-recovery"><%= link_to 'Forgot your password?', new_password_path(resource_name), class: 'link-to-text-color' %></p>
+         <button class="form-btn">
+           <%= f.submit "" %>
+            Sign in
+         </button>
+         <div class="form-account-register">Don`t have account?
+          <%= link_to 'Sign up', new_registration_path(resource_name), class: 'link-to-text-color' %>
+         </div>
+         <!-- <% end %> -->
+      </div>
+      </div>  

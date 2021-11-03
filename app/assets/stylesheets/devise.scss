@@ -1,4 +1,4 @@
-@import "bootstrap-sprockets";
+// @import "bootstrap-sprockets";
 @import "bootstrap";
 body {
     display: flex;
@@ -23,6 +23,12 @@ body {
     z-index: 2;
 }
 
+.form-signin input[type="user_name"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
 .form-signin input[type="email"] {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
@@ -34,4 +40,9 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
-© 
+
+.form-signin input[type="password_confirmation"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
