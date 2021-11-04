@@ -9,6 +9,14 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-
+<div class="col-md-8">
+    <%= render 'follow_form' if current_user %>
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <% end %>
+  </div>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
