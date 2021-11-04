@@ -27,6 +27,7 @@ class MicropostsController < ApplicationController
   def create
     set_meta_tags site: 'Create post'
     @micropost = current_user.microposts.create(micropost_params)
+    @micropost.image.attach(params[:micropost][:image])
     respond_to do |format|
       if @micropost.save
         format.html { redirect_to @micropost, notice: 'Micropost was successfully created.' }
@@ -66,6 +67,6 @@ class MicropostsController < ApplicationController
   end
 
   def micropost_params
-    params.require(:micropost).permit(:content, :context)
+    params.require(:micropost).permit(:content, :context, :image)
   end
 end
