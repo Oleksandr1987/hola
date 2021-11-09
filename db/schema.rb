@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_04_154641) do
+ActiveRecord::Schema.define(version: 2021_11_09_111624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(version: 2021_11_04_154641) do
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.bigint "micropost_id", null: false
+    t.index ["micropost_id"], name: "index_comments_on_micropost_id"
   end
 
   create_table "microposts", force: :cascade do |t|
@@ -55,6 +58,7 @@ ActiveRecord::Schema.define(version: 2021_11_04_154641) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "context"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -86,4 +90,5 @@ ActiveRecord::Schema.define(version: 2021_11_04_154641) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "microposts"
 end

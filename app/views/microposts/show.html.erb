@@ -4,8 +4,8 @@
 <h5><span class="post-name"><%= @micropost.user.name %></span> Micropost</h5>
       <div class="post-content">
           <h1><%= @micropost.context%></h1>
-          <%= image_tag @micropost.display_image
-          if @micropost.image.attached? %>
+          <% if @micropost.image.present?%>
+          <%= image_tag @micropost %>
               <% end %>
 
           <p><%= @micropost.content %></p>
@@ -14,7 +14,6 @@
           <% if  user_signed_in? %>
             <%= render @micropost.comments %>
             <%= render 'comments/form' %>
-
           <% end %>
 <div class="post-edit-btn">
   <button class="form-btn">
