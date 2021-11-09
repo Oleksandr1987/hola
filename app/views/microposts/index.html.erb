@@ -8,7 +8,11 @@
                <div class="post-content">
                   <h4><%= micropost.context %></h4>
                   <p><%= micropost.content %></p>
+                  <div class="post-actions">
+                <button>
                    <%= link_to 'Destroy', micropost, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </button>
+                    </div>
                           <% end %>
                   <% end %>
          </div>
