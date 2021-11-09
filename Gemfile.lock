@@ -70,6 +70,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    acts_as_votable (0.13.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (10.3.3.0)
@@ -270,6 +271,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_storage_validations (= 0.8.2)
+  acts_as_votable
   awesome_print
   bootsnap (>= 1.4.4)
   bootstrap (~> 5.1.0)

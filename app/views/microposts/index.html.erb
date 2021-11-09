@@ -8,6 +8,18 @@
                <div class="post-content">
                   <h4><%= micropost.context %></h4>
                   <p><%= micropost.content %></p>
+
+                  <% if current_user.liked? micropost %>
+    <%= link_to dislike_micropost_path(micropost.id), method: :put do %>
+      <%= image_tag("like.png", :alt => "Like", height: 18, width: 20) %>
+      <%= micropost.get_likes.size %>
+      <% end %>
+      <% else %>
+      <%= link_to like_micropost_path(micropost), method: :put do %>
+          <%= image_tag("dislike.png", :alt => "Like", height: 18, width: 20) %>
+          <%= micropost.get_likes.size %>
+        <% end %>
+    <% end %>
                   <div class="post-actions">
                 <button>
                    <%= link_to 'Destroy', micropost, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 resources :microposts do
+  member do
+       put "like", to: "microposts#like"
+       put "dislike", to: "microposts#dislike"
+     end
   resources :comments
 end
 get 'secrets/index'

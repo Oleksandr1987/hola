@@ -59,6 +59,18 @@ class MicropostsController < ApplicationController
     end
   end
 
+  def like
+      @micropost = Micropost.find(params[:id])
+      @micropost.liked_by current_user
+      redirect_to micropost_path(@micropost)
+    end
+
+    def dislike
+      @micropost = Micropost.find(params[:id])
+      @micropost.disliked_by current_user
+      redirect_to micropost_path(@micropost)
+    end
+
 
   private
 

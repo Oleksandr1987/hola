@@ -13,6 +13,9 @@ class User < ApplicationRecord
    validates :name, presence: true, length: { maximum: 50 }
    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+acts_as_voter
+
 # Follows a user.
  def follow(other_user)
   following << other_user
