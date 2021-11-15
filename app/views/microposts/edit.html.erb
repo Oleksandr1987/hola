@@ -1,11 +1,17 @@
 <%= stylesheet_link_tag 'microposts' %>
-<div class="main-container">
-<div class="post-container">
-<h4>Editing Micropost</h4>
-
-<%= render 'form', micropost: @micropost %>
-<%= link_to 'Show', @micropost %> |
-<%= link_to 'Back', microposts_path %>
-
-</div>
-</div>
+<div class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+      <h4>Editing Micropost</h4>
+      <%= render 'form', micropost: @micropost %>
+       </div>
+     </div>
+   </div>
+ </div>
+       <div class="row">
+         <p class='control'>
+         <%= link_to 'Show', @micropost %> |
+         <%= link_to 'Back', microposts_path %>
+         </p>
+       </div>

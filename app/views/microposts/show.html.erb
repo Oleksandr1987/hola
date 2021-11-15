@@ -5,7 +5,7 @@
       <div class="post-content">
           <h1><%= @micropost.context%></h1>
           <% if @micropost.image.present?%>
-          <%= image_tag @micropost %>
+          <%= image_tag @micropost.image %>
               <% end %>
 
           <p><%= @micropost.content %></p>
@@ -26,4 +26,5 @@
          </button>
   </div>
 
+</div>
 </div>

@@ -21,11 +21,20 @@
     <!-- Custom styles for this template -->
     <!-- <link href="headers.css" rel="stylesheet"> -->
   </head>
-  <body>
-  <!-- <div class="wrapper"> -->
+  <% if @homePage %><body class="home">
+    <% else %><body>
+    <% end %>
+
+  <div class="wrapper">
     <%= render 'shared/header' %>
-    <div class="empty"></div>
+    <div class="container">
+      <% flash.each do |notice_type, notice| %>
+        <div class="alert alert-<%= notice_type %>"><%= notice %></div>
+      <% end %>
+    <!-- <div class="empty"></div> -->
       <%= yield %>
+      </div>
+      </div>
       <%= render 'shared/footer' %>
     <!-- </div> -->
   </body>

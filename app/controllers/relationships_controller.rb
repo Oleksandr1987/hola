@@ -1,12 +1,12 @@
 class RelationshipsController < ApplicationController
-before_action :set_followed_user
+before_action :set_user
 
   def create
       user = User.find(params[:followed_id])
       current_user.follow(@user)
       respond_to do |format|
         format.html { redirect_to @user }
-        format.json
+        format.js
       end
     end
 
@@ -15,11 +15,12 @@ before_action :set_followed_user
       current_user.unfollow(@user)
       respond_to do |format|
           format.html { redirect_to @user }
-          format.json
+          format.js
     end
+  end
+
     private
     def set_followed_user
       @user = User.find(params[:relationship][:followed_id])
     end
 end
-  

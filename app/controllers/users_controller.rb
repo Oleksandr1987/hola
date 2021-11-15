@@ -6,6 +6,7 @@ before_action :set_user, only: %i[show edit update destroy following followers]
   def index
     @users = User.all
     set_meta_tags site: 'User all'
+    @users = User.paginate(page: params[:page])
   end
 
   # GET /users/1 or /users/1.json
@@ -13,6 +14,7 @@ before_action :set_user, only: %i[show edit update destroy following followers]
     set_meta_tags title: @user.name,
                   site: 'User Form',
                   reverse: true
+     @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   # GET /users/new
@@ -31,7 +33,7 @@ before_action :set_user, only: %i[show edit update destroy following followers]
 
   # POST /users or /users.json
   def create
-    set_meta_tags title: @user.name, site: 'Edit Form', everse: true
+    set_meta_tags title: @user.name, site: 'Edit Form', reverse: true
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
@@ -62,6 +64,13 @@ before_action :set_user, only: %i[show edit update destroy following followers]
       format.json { head :no_content }
     end
   end
+
+  def profile
+         @userid = params[:user_id]
+         @userinfo = User.find(params[:user_id])
+         @usercount = @userinfo.microposts
+         @microposts=Micropost.all
+       end
 
   def following
     @title = "Following"

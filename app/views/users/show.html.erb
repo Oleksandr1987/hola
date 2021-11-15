@@ -1,10 +1,15 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+<h1>
   <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
+ <%= gravatar_for @user %>
+ <%= @user.name %>
+</h1>
+    </section>
+   </aside>
+ </div>
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
@@ -16,7 +21,10 @@
     <%= render 'follow_form' if current_user.present? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
-
+      <ol class="microposts">
+              <%= render @microposts %>
+            </ol>
+            <%= will_paginate @microposts %>
       <% end %>
   </div>
 <%= link_to 'Edit', edit_user_path(@user) %> |

@@ -1,8 +1,16 @@
 <%= stylesheet_link_tag 'microposts' %>
-<div class="main-container">
-<div class="post-container">
-<h4>Create new micropost</h4>
-<%= render 'form', micropost: @micropost %>
-<%= link_to 'Back', microposts_path, class:"form-btn" %>
-</div>
-</div>
+<div class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+      <h4 class='title'>Create new micropost</h4>
+      <%= render 'form', micropost: @micropost %>
+      </div>
+    </div>
+   </div>
+  </div>
+      <div class=row">
+        <p class='control'>
+        <%= link_to 'Back', microposts_path, class:"form-btn" %>
+        </p>
+     </div>

@@ -1,0 +1,41 @@
+
+ <h1 class="title">My Profile</h1>
+
+<div>
+<!-- <h1><%= @userinfo.email %></h1> -->
+<h5>You have posted <%= @usercount.size %> time(s).</h5>
+</div>
+
+<div>
+<% @microposts.reverse.each do |micropost| %>
+  <% if @userinfo == micropost.user %>
+    <p>
+      <tr>
+        <div  class="micropost">
+          <h3 class="black"><td><%= link_to micropost.user.email, user_profile_path(micropost.user) %></td></h3>
+          <h4><%= micropost.context %></h4>
+          <h2><td><%= micropost.content %></td></h2>
+          <h3><td><%= micropost.created_at %></td></h3>
+          <span class="micropost-button">
+            <div class="level-item has-centered-text">
+                      <div>
+                        <% @user ||= current_user %>
+                        <p class='heading'>Following  <%= @user.following.count %>
+                                          Followers  <%= @user.followers.count %></p>
+
+                      </div>
+                    </div>
+                    <div class="level-item has-centered-text">
+                      <div>
+
+                      </div>
+                    </div>
+
+            <%= link_to "Delete", micropost_path(micropost.id), :confirm => "Are you sure?", :method => :delete %>
+          </span>
+        </div>
+      </tr>
+    </p>
+  <% end %>
+<% end %>
+</div>
