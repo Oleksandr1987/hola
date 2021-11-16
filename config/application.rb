@@ -16,6 +16,7 @@ module Hola
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
+     config.action_view.embed_authenticity_token_in_remote_forms = true
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end

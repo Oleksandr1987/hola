@@ -5,22 +5,23 @@ before_action :set_user
       user = User.find(params[:followed_id])
       current_user.follow(@user)
       respond_to do |format|
-        format.html { redirect_to @user }
-        format.js
-      end
+          format.html { redirect_to @user }
+          format.js
+        end
     end
 
     def destroy
       user = Relationship.find(params[:id]).followed
       current_user.unfollow(@user)
       respond_to do |format|
-          format.html { redirect_to @user }
-          format.js
+        format.html { redirect_to @user }
+        format.js
+      end
     end
   end
 
+
     private
-    def set_followed_user
-      @user = User.find(params[:relationship][:followed_id])
+    def set_user
+      @user = User.find(params[:relationships][:followed_id])
     end
-end

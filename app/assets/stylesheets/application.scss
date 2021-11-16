@@ -231,10 +231,9 @@ aside {
 }
 
 .gravatar {
-  // float: left;
-  padding: 5;
-  margin-top: 10px;
-  margin-right: 10px;
+
+  margin: 10px;
+  display: block;
 }
 
 .gravatar_edit {
@@ -306,5 +305,12 @@ input {
 .field_with_errors {
 .has-error  .form-control {
     color: red;
+  }
+}
+
+
+.pagination {
+  li {
+    margin: 0 10px;
   }
 }

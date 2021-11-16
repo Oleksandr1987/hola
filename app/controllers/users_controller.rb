@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 before_action :set_user, only: %i[show edit update destroy following followers]
-  before_action :check_is_admin, only: :index
+  before_action :check_is_admin, only: %i[index destroy]
 
   # GET /users or /users.json
   def index
@@ -72,6 +72,7 @@ before_action :set_user, only: %i[show edit update destroy following followers]
          @microposts=Micropost.all
        end
 
+    
   def following
     @title = "Following"
     @user  = User.find(params[:id])
