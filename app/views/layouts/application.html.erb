@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hola</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= display_meta_tags%>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-    <%= yield %>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Hola</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <!-- Custom styles for this template -->
+    <!-- <link href="headers.css" rel="stylesheet"> -->
+  </head>
+  <% if @homePage %><body class="home">
+    <% else %><body>
+    <% end %>
+
+  <div class="wrapper">
+    <%= render 'shared/header' %>
+    <div class="container">
+      <% flash.each do |notice_type, notice| %>
+        <div class="alert alert-<%= notice_type %>"><%= notice %></div>
+      <% end %>
+    <!-- <div class="empty"></div> -->
+      <%= yield %>
+      </div>
+      </div>
+      <%= render 'shared/footer' %>
+    <!-- </div> -->
   </body>
 </html>

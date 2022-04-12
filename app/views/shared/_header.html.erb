@@ -1,0 +1,94 @@
+
+  <!-- <body> -->
+    <header>
+
+  <nav class="navbar navbar-expand-lg" >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbar-content" aria-expanded="false" aria-label="toggle-navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id=navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+
+              <!-- Home -->
+          <%= link_to 'Home', home_index_path, class: 'nav-link' %>
+
+          </li>
+          <% if user_signed_in? %>
+                 <% if current_user.is_admin?  %>
+          <li class="nav-item">
+
+              <!-- Users all -->
+          <%= link_to 'Users', users_path, class: 'nav-link' %>
+
+          </li>
+            <% end %>
+          <li class="nav-item">
+
+              <!-- New Posts -->
+        <%= link_to 'New Micropost', new_micropost_path, class: 'nav-link' %>
+
+          </li>
+          <li class="nav-item">
+
+              <!-- My Profile -->
+              <%= link_to 'My profile', user_profile_path(current_user.id), class: 'nav-link' %>
+
+                </li>
+                <li class="nav-item">
+
+
+              <!-- All Posts -->
+        <%= link_to 'All Microposts', microposts_path, class: 'nav-link' %>
+
+          </li>
+          <li class="nav-item">
+
+              <!-- Secrets -->
+         <%= link_to 'Secrets', secrets_index_path, class: 'nav-link' %>
+
+          </li>
+          <li class="nav-item">
+
+                     <!-- Edit account -->
+      <%= link_to 'Edit Account', edit_user_registration_path, class: 'nav-link' %>
+
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link" href="#" >About
+                     <!-- About -->
+                   </a>
+                 </li>
+                 <li class="nav-item">
+
+                     <!-- Logout -->
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+
+                 </li>
+               <% else%>
+                 <li class="nav-item">
+                   <a class="nav-link" href="#" >About
+                     <!-- About -->
+                   </a>
+                 </li>
+                 <li class="nav-item">
+
+                     <!-- Login -->
+           <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
+
+                 </li>
+               <% end %>
+        </ul>
+      </div>
+    </nav>
+    </header>
+    <!-- <section> -->
+      <!-- <h1>
+        <div
+          class="bg-image"
+          style="background-image: url('pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg');
+            height: 95vh;">
+          </div>
+      </h1> -->
+    <!-- </section> -->
+  <!-- </body> -->

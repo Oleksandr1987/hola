@@ -1,0 +1,7 @@
+<%= stylesheet_link_tag 'microposts' %>
+<div class="comments">
+<h5 class="comments-user"><%= comment.user.name %></h5>
+<p class="comments-body"><%= comment.body %></p>
+<p class="comments-add">Added: <strong><%= time_ago_in_words(comment.created_at) %></strong></p>
+<p class="comments-delete"><%= link_to 'Delete', [comment.micropost,comment], method: :delete, data: { confirm: 'Are you sure?' } %></p>
+</div>

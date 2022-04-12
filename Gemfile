@@ -22,15 +22,30 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'will_paginate', '~> 3.3', '>= 3.3.1'
+gem 'bootstrap-will_paginate', '~> 1.0'
+gem 'image_processing', '1.9.3'
+gem 'mini_magick', '4.9.5'
+gem 'active_storage_validations', '0.8.2'
+gem 'acts_as_votable'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'gravatar_image_tag', '~> 1.2'
+gem 'jquery-rails'
+gem 'bootstrap', '~> 5.1.0'
+gem 'awesome_print'
+gem 'meta-tags'
+gem 'factory_bot'
+gem 'pry-rails'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
+  gem 'devise'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 5.0.0'
+ gem 'pry'
 end
 
 group :development do

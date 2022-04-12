@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag 'microposts' %>
+<div class="main-container">
+<div class="post-edit">
+<h5><span class="post-name"><%= @micropost.user.name %></span> Micropost</h5>
+      <div class="post-content">
+          <h1><%= @micropost.context%></h1>
+          <% if @micropost.image.present?%>
+          <%= image_tag @micropost.image %>
+              <% end %>
+
+          <p><%= @micropost.content %></p>
+      </div>
+
+          <% if  user_signed_in? %>
+            <%= render @micropost.comments %>
+            <%= render 'comments/form' %>
+          <% end %>
+<div class="post-edit-btn">
+  <button class="form-btn">
+           <%= link_to 'Edit', edit_micropost_path(@micropost) %>
+
+         </button>
+  <button class="form-btn">
+           <%= link_to 'Back', microposts_path %>
+
+         </button>
+  </div>
+
+</div>
+</div>

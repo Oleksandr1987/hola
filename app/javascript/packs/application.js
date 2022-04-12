@@ -3,11 +3,28 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+require("turbolinks").start()
+require("@rails/activestorage").start()
+require("channels")
+require('jquery');
+
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-
+import "jquery"
+import "bootstrap"
+global.$ = jQuery;
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+
+
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap
+//= require activestorage
+//= require bootstrap
+//= require turbolinks
+//= require_tree .
